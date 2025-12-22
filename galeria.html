@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Galeria — UP Experience Natal</title>
+<link rel="stylesheet" href="styles.css">
+
+<style>
+/* FILTROS */
+.filters{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-bottom:20px;
+}
+.filters button{
+  padding:8px 14px;
+  border:none;
+  border-radius:20px;
+  background:#eee;
+  cursor:pointer;
+  font-weight:600;
+}
+.filters button.active{
+  background:var(--blue);
+  color:#fff;
+}
+
+/* GALERIA */
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:18px;
+}
+.gallery-card{
+  position:relative;
+  border-radius:14px;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+}
+.gallery-card img{
+  width:100%;
+  height:240px;
+  object-fit:cover;
+  cursor:pointer;
+  transition:.4s;
+}
+.gallery-card:hover img{transform:scale(1.1)}
+
+.gallery-info{
+  position:absolute;
+  bottom:0;
+  left:0;
+  right:0;
+  padding:14px;
+  background:linear-gradient(180deg,transparent,rgba(0,0,0,.75));
+  color:#fff;
+}
+.gallery-info h4{margin:0}
+.gallery-info a{
+  display:inline-block;
+  margin-top:6px;
+  background:var(--wine);
+  padding:6px 10px;
+  border-radius:6px;
+  color:#fff;
+  font-size:13px;
+  text-decoration:none;
+}
+
+/* MODAL */
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.9);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:9999;
+}
+.modal img{
+  max-width:90%;
+  max-height:90%;
+  border-radius:12px;
+}
+.modal span{
+  position:absolute;
+  top:20px;
+  right:30px;
+  color:#fff;
+  font-size:32px;
+  cursor:pointer;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <div class="logo">Up</div>
+    <div>
+      <strong>UP Experience Natal</strong>
+      <div style="font-size:12px">Experiências reais</div>
+    </div>
+  </div>
+  <nav id="nav">
+    <a href="index.html">Início</a>
+    <a href="rotas.html">Passeios</a>
+    <a href="galeria.html">Galeria</a>
+    <a href="carrinho.html">Reservar</a>
+  </nav>
+</header>
+
+<main class="container">
+
+<section class="section">
+<h2>Galeria de Experiências</h2>
+
+<div class="filters">
+  <button class="active" onclick="filtrar('all')">Todos</button>
+  <button onclick="filtrar('gostoso')">São Miguel</button>
+  <button onclick="filtrar('pipa')">Pipa</button>
+  <button onclick="filtrar('galinhos')">Galinhos</button>
+  <button onclick="filtrar('genipabu')">Genipabu</button>
+  <button onclick="filtrar('maracajau')">Maracajaú</button>
+</div>
+
+<div class="gallery-grid">
+
+  <div class="gallery-card gostoso">
+    <img src="https://www.mundoviajante.com/wp-content/uploads/2024/01/praias_sao_miguel_do_gostoso.jpeg" onclick="abrir(this.src)">
+    <div class="gallery-info">
+      <h4>São Miguel do Gostoso</h4>
+      <a href="carrinho.html">Reservar passeio</a>
+    </div>
+  </div>
+
+  <div class="gallery-card pipa">
+    <img src="https://tse2.mm.bing.net/th/id/OIP.qEd3c0-DQ1rb1r8-smwHcQHaEK?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3" onclick="abrir(this.src)">
+    <div class="gallery-info">
+      <h4>Complexo Pipa</h4>
+      <a href="carrinho.html">Reservar passeio</a>
+    </div>
+  </div>
+
+  <div class="gallery-card galinhos">
+    <img src="https://www.natalpraias.com.br/wp-content/uploads/2015/09/Galinhos-RN-BRASIL.jpg" onclick="abrir(this.src)">
+    <div class="gallery-info">
+      <h4>Galinhos</h4>
+      <a href="carrinho.html">Reservar passeio</a>
+    </div>
+  </div>
+
+  <div class="gallery-card genipabu">
+    <img src="https://vidasemparedes.com.br/wp-content/uploads/2020/03/natalrn-vidasemparedes-26.jpg" onclick="abrir(this.src)">
+    <div class="gallery-info">
+      <h4>Buggy em Genipabu</h4>
+      <a href="carrinho.html">Reservar passeio</a>
+    </div>
+  </div>
+
+  <div class="gallery-card maracajau">
+    <img src="https://tse3.mm.bing.net/th/id/OIP.9K0eO2bfx2CUmix-8lLfgAHaEq?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3" onclick="abrir(this.src)">
+    <div class="gallery-info">
+      <h4>Maracajaú</h4>
+      <a href="carrinho.html">Reservar passeio</a>
+    </div>
+  </div>
+
+  <div class="gallery-card gostoso">
+    <img src="https://vidasemparedes.com.br/wp-content/uploads/2020/02/saomigueldogostoso-vidasemparedes-2.jpg" onclick="abrir(this.src)">
+    <div class="gallery-info">
+      <h4>São Miguel do Gostoso</h4>
+      <a href="carrinho.html">Reservar passeio</a>
+    </div>
+  </div>
+
+  <div class="gallery-card pipa">
+    <img src="https://fcf51e9cb1.clvaw-cdnwnd.com/22d6f83774c3e261d0bcb7364e77ab83/200004231-b2368b236b/praia%20da%20Pipa-1.jpeg?ph=fcf51e9cb1" onclick="abrir(this.src)">
+    <div class="gallery-info">
+      <h4>Complexo Pipa</h4>
+      <a href="carrinho.html">Reservar passeio</a>
+    </div>
+  </div>
+
+  <div class="gallery-card galinhos">
+    <img src="https://th.bing.com/th/id/R.e650736b0b43db75a31d657123ba8225?rik=9z1auv5o0GacCw&pid=ImgRaw&r=0" onclick="abrir(this.src)">
+    <div class="gallery-info">
+      <h4>Galinhos</h4>
+      <a href="carrinho.html">Reservar passeio</a>
+    </div>
+  </div>
+
+  <div class="gallery-card genipabu">
+    <img src="https://media-cdn.tripadvisor.com/media/photo-s/25/1e/45/cf/jenipabu-natal-5-agosto.jpg" onclick="abrir(this.src)">
+    <div class="gallery-info">
+      <h4>Buggy em Genipabu</h4>
+      <a href="carrinho.html">Reservar passeio</a>
+    </div>
+  </div>
+
+  <div class="gallery-card maracajau">
+    <img src="https://tse1.mm.bing.net/th/id/OIP.9z7rAy4Cf7p2ObcVHLF3UgHaEo?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3" onclick="abrir(this.src)">
+    <div class="gallery-info">
+      <h4>Maracajaú</h4>
+      <a href="carrinho.html">Reservar passeio</a>
+    </div>
+  </div>
+
+  <div class="gallery-card gostoso">
+    <img src="https://th.bing.com/th/id/R.e702f4d5ba60b1e6dc8f896eb47b42ce?rik=dK4Umt5uIqb%2fvA&pid=ImgRaw&r=0" onclick="abrir(this.src)">
+    <div class="gallery-info">
+      <h4>São Miguel do Gostoso</h4>
+      <a href="carrinho.html">Reservar passeio</a>
+    </div>
+  </div>
+
+  <div class="gallery-card pipa">
+    <img src="https://imagedelivery.net/EafvxYlk8cSUsWEWsetEdQ/abd1b6ee-844d-45a1-6ae2-a23dd3b82300/w=1000" onclick="abrir(this.src)">
+    <div class="gallery-info">
+      <h4>Complexo Pipa</h4>
+      <a href="carrinho.html">Reservar passeio</a>
+    </div>
+  </div>
+
+  <div class="gallery-card galinhos">
+    <img src="https://tse4.mm.bing.net/th/id/OIP.Z1czf-yMgD0g1rQKRQMYQQHaJQ?cb=ucfimg2&pid=ImgDet&ucfimg=1&w=474&h=592&rs=1&o=7&rm=3" onclick="abrir(this.src)">
+    <div class="gallery-info">
+      <h4>Galinhos</h4>
+      <a href="carrinho.html">Reservar passeio</a>
+    </div>
+  </div>
+
+  <div class="gallery-card genipabu">
+    <img src="https://cache.quantocustaviajar.com/blog/wp-content/uploads/2018/12/dunas-de-genipabu-1.jpg" onclick="abrir(this.src)">
+    <div class="gallery-info">
+      <h4> Genipabu</h4>
+      <a href="carrinho.html">Reservar passeio</a>
+    </div>
+  </div>
+
+  <div class="gallery-card maracajau">
+    <img src="https://th.bing.com/th/id/R.f62d442a222ffef3c21d8e2b8f30504a?rik=0bJxr%2bKvguUswA&pid=ImgRaw&r=0" onclick="abrir(this.src)">
+    <div class="gallery-info">
+      <h4>Maracajaú</h4>
+      <a href="carrinho.html">Reservar passeio</a>
+    </div>
+  </div>
+
+
+
+</div>
+</section>
+
+</main>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+  <span onclick="fechar()">×</span>
+  <img id="modal-img">
+</div>
+
+<script>
+function abrir(src){
+  document.getElementById('modal').style.display='flex';
+  document.getElementById('modal-img').src=src;
+}
+function fechar(){
+  document.getElementById('modal').style.display='none';
+}
+function filtrar(cat){
+  document.querySelectorAll('.filters button').forEach(b=>b.classList.remove('active'));
+  event.target.classList.add('active');
+
+  document.querySelectorAll('.gallery-card').forEach(card=>{
+    card.style.display = (cat=='all' || card.classList.contains(cat)) ? 'block' : 'none';
+  });
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Reserva — UP Experience Natal</title>
+<link rel="stylesheet" href="styles.css">
+
+<style>
+.simple-reserve{
+  max-width:500px;
+  margin:auto;
+  background:#fff;
+  padding:30px;
+  border-radius:16px;
+  box-shadow:0 10px 30px rgba(0,0,0,.12);
+}
+
+.simple-reserve h2{
+  text-align:center;
+  color:var(--azul);
+  margin-bottom:10px;
+}
+
+.simple-reserve p{
+  text-align:center;
+  color:#555;
+  margin-bottom:20px;
+}
+
+.simple-reserve label{
+  font-weight:700;
+  font-size:14px;
+  margin-top:14px;
+  display:block;
+}
+
+.simple-reserve input,
+.simple-reserve select{
+  width:100%;
+  padding:14px;
+  margin-top:6px;
+  border-radius:10px;
+  border:1px solid #ddd;
+  font-size:15px;
+}
+
+.simple-reserve button{
+  width:100%;
+  margin-top:24px;
+  background:#25d366;
+  color:#fff;
+  border:none;
+  padding:16px;
+  font-size:18px;
+  border-radius:12px;
+  font-weight:800;
+  cursor:pointer;
+}
+
+.simple-reserve button:hover{
+  opacity:.9;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="brand">
+    <div class="logo">Up</div>
+    <strong>UP Experience Natal</strong>
+  </div>
+</header>
+
+<main class="container">
+
+<section class="section">
+  <div class="simple-reserve">
+    <h2>Reserve seu Passeio</h2>
+    <p>Preencha rapidamente e finalize no WhatsApp</p>
+
+    <label>Seu nome</label>
+    <input type="text" id="nome" placeholder="Digite seu nome completo">
+
+    <label>Escolha o passeio</label>
+    <select id="passeio">
+      <option value="">Selecione o passeio</option>
+      <option>São Miguel do Gostoso</option>
+      <option>Complexo Pipa</option>
+      <option>Galinhos</option>
+      <option>Genipabu (Buggy)</option>
+      <option>Maracajaú</option>
+      <option>Barra de Cunhaú</option>
+      <option>City Tour Natal</option>
+      <option>Rota dos Nativos 4x4</option>
+    </select>
+
+    <button onclick="enviarWhats()">Finalizar no WhatsApp</button>
+  </div>
+</section>
+
+</main>
+
+<script>
+function enviarWhats(){
+  const nome = document.getElementById('nome').value;
+  const passeio = document.getElementById('passeio').value;
+
+  if(nome === '' || passeio === ''){
+    alert('Por favor, preencha seu nome e selecione o passeio.');
+    return;
+  }
+
+  const msg =
+`Olá! Quero reservar um passeio com a Elite Tour Brasil.%0A
+🙋 Nome: ${nome}%0A
+📍 Passeio escolhido: ${passeio}`;
+
+  window.open(
+    `https://wa.me/5599999999999?text=${msg}`,
+    '_blank'
+  );
+}
+</script>
+
+</body>
+</html>

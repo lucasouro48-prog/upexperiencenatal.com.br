@@ -1,0 +1,57 @@
+:root{
+  --blue:#0b4f74;
+  --wine:#0e7080;
+  --white:#ffffff;
+  --max-width:1100px;
+  --radius:8px;
+  --shadow:0 6px 18px rgba(0,0,0,.12);
+  font-family:"Segoe UI",Roboto,Arial,sans-serif;
+}
+
+*{box-sizing:border-box}
+body{margin:0;background:linear-gradient(180deg,#fff,#f4f9ff)}
+.container{max-width:var(--max-width);margin:auto;padding:24px}
+
+header{
+  position:fixed;top:0;left:0;width:100%;
+  background:linear-gradient(90deg,var(--blue),var(--wine));
+  color:#fff;display:flex;align-items:center;
+  padding:12px 20px;z-index:1000
+}
+.brand{display:flex;gap:10px;align-items:center;font-weight:700}
+.logo{width:40px;height:40px;border-radius:8px;
+background:#08344d;display:flex;align-items:center;justify-content:center}
+
+nav{margin-left:auto;display:flex;gap:14px}
+nav a{color:#fff;text-decoration:none;font-weight:600}
+.menu-toggle{display:none;flex-direction:column;gap:4px;cursor:pointer}
+.menu-toggle span{height:3px;width:25px;background:#fff}
+
+.lang-select{margin-left:12px;border-radius:6px;padding:4px}
+
+.hero{
+  margin-top:90px;display:flex;gap:20px;
+  background:#fff;border-radius:12px;padding:24px;box-shadow:var(--shadow)
+}
+.hero img{width:100%;border-radius:10px}
+.hero .photos{display:grid;grid-template-columns:1fr 1fr;gap:8px;width:380px}
+
+.section{margin-top:30px;background:#fff;padding:20px;border-radius:12px;box-shadow:var(--shadow)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+.card img{width:100%;height:160px;object-fit:cover;border-radius:8px}
+
+.btn{background:var(--blue);color:#fff;border:none;padding:10px 16px;
+border-radius:8px;font-weight:700;cursor:pointer}
+.btn.secondary{background:var(--wine)}
+
+.footer{text-align:center;margin:30px 0;color:#555}
+
+@media(max-width:768px){
+  nav{display:none;position:absolute;top:65px;left:0;width:100%;
+  background:#fff;color:#333;flex-direction:column}
+  nav a{color:#333;padding:10px}
+  nav.active{display:flex}
+  .menu-toggle{display:flex}
+  .hero{flex-direction:column}
+  .hero .photos{width:100%}
+}
