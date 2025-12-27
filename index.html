@@ -5,7 +5,46 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>UP Experience Natal — Passeios no RN</title>
 <link rel="stylesheet" href="styles.css">
+
+<style>
+/* AJUSTE ESPECÍFICO DA HERO */
+.hero{
+  display:flex;
+  align-items:center;
+  gap:30px;
+}
+
+.hero-logo{
+  flex:1;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.hero-logo img{
+  max-width:280px; /* LOGO DIMINUÍDA */
+  width:100%;
+  filter:drop-shadow(0 10px 22px rgba(0,0,0,.25));
+}
+
+.hero .text{
+  flex:2;
+}
+
+/* MOBILE */
+@media(max-width:820px){
+  .hero{
+    flex-direction:column;
+    text-align:center;
+  }
+
+  .hero-logo img{
+    max-width:200px;
+  }
+}
+</style>
 </head>
+
 <body>
 
 <header>
@@ -13,11 +52,15 @@
     <div class="logo">Up</div>
     <div>
       <div class="brand-title">UP Experience Natal</div>
-      <div style="font-size:12px;opacity:.85">Passeios completos pelo Rio Grande do Norte</div>
+      <div style="font-size:12px;opacity:.85">
+        Passeios completos pelo Rio Grande do Norte
+      </div>
     </div>
   </div>
 
-  <div class="menu-toggle" id="menu-toggle"><span></span><span></span><span></span></div>
+  <div class="menu-toggle" id="menu-toggle">
+    <span></span><span></span><span></span>
+  </div>
 
   <nav id="nav">
     <a href="index.html">Início</a>
@@ -30,22 +73,28 @@
 <main class="container">
 
 <section class="hero">
+
+  <!-- LOGO -->
+  <div class="hero-logo">
+    <img 
+      src="WhatsApp Image 2025-12-22 at 17.12.43.jpeg" 
+      alt="UP Experience Natal - Passeios no RN">
+  </div>
+
+  <!-- TEXTO -->
   <div class="text">
-    <h1> UP Experience Natal</h1>
+    <h1>UP Experience Natal</h1>
+
     <p>
-      
+      Vem viver Natal do jeitinho que só o Nordeste sabe mostrar!  
+      Com a UP Experience Natal, cada passeio é mais que uma viagem:
+      é sorriso, vento no rosto, paisagem linda e aquele acolhimento
+      que faz você se sentir em casa.
+    </p>
 
- <p>Vem viver Natal do jeitinho que só o Nordeste sabe mostrar!
-Com a UP Experience Natal, cada passeio é mais que uma viagem: é sorriso, vento no rosto, paisagem linda e aquele acolhimento que faz você se sentir em casa.
-Chegue mais, escolha seu roteiro e deixe a gente cuidar do resto. Aqui a experiência é arretada de boa! 💙✨ </p>
-
-<p>Mais que passeios. Viva Natal em alto nível!"</p>
-
-
-
-
-
-
+    <p>
+      <strong>Mais que passeios. Viva Natal em alto nível!</strong>
+    </p>
 
     <p style="margin-top:12px">
       <a class="btn" href="rotas.html">Ver Passeios</a>
@@ -55,33 +104,55 @@ Chegue mais, escolha seu roteiro e deixe a gente cuidar do resto. Aqui a experi�
     </p>
   </div>
 
-  <!-- LOGO GRANDE -->
-  <div class="hero-logo">
-    <img 
-      src="WhatsApp Image 2025-12-22 at 17.12.43.jpeg" 
-      alt="Elite Tour Brasil - Passeios no RN">
-  </div>
 </section>
-
 
 <section class="section">
   <h2>Principais Destinos</h2>
   <div class="grid">
-    <div class="card"><img src="https://www.viajali.com.br/wp-content/uploads/2022/02/rio-do-fogo-01.png"><div class="meta"><div>Rio do Fogo</div><div class="badge">Parrachos</div></div></div>
-    <div class="card"><img src="https://fcf51e9cb1.clvaw-cdnwnd.com/22d6f83774c3e261d0bcb7364e77ab83/200004231-b2368b236b/praia%20da%20Pipa-1.jpeg?ph=fcf51e9cb1"><div class="meta"><div> Pipa RN</div><div class="badge">Top 10</div></div></div>
-    <div class="card"><img src="https://tse3.mm.bing.net/th/id/OIP.3WfiWxK4EoLxsf-GkRvGugHaE8?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3"><div class="meta"><div>4x4 </div><div class="badge">passeios</div></div></div>
-    <div class="card"><img src="https://tse3.mm.bing.net/th/id/OIP.9K0eO2bfx2CUmix-8lLfgAHaEq?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3"><div class="meta"><div>Maracajaú</div><div class="badge">Parrachos</div></div></div>
+    <div class="card">
+      <img src="https://www.viajali.com.br/wp-content/uploads/2022/02/rio-do-fogo-01.png">
+      <div class="meta">
+        <div>Rio do Fogo</div>
+        <div class="badge">Parrachos</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://fcf51e9cb1.clvaw-cdnwnd.com/22d6f83774c3e261d0bcb7364e77ab83/200004231-b2368b236b/praia%20da%20Pipa-1.jpeg">
+      <div class="meta">
+        <div>Pipa RN</div>
+        <div class="badge">Top 10</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://cdn.paytour.com.br/assets/images/passeios-20199/7f44b3e04d2e2a3278e4fc244dd8548c/Dunas%20de%20buzios%20(2).jpg">
+      <div class="meta">
+        <div>Off Road 4x4</div>
+        <div class="badge">Aventura</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://tse3.mm.bing.net/th/id/OIP.9K0eO2bfx2CUmix-8lLfgAHaEq">
+      <div class="meta">
+        <div>Maracajaú</div>
+        <div class="badge">Parrachos</div>
+      </div>
+    </div>
   </div>
 </section>
 
 <footer class="footer">
-© UP Experience Natal— Turismo com excelência
+© UP Experience Natal — Turismo com excelência
 </footer>
 
 </main>
 
 <script>
-document.getElementById('menu-toggle').onclick=()=>nav.classList.toggle('active');
+document.getElementById('menu-toggle').onclick = () => 
+  nav.classList.toggle('active');
 </script>
+
 </body>
 </html>
